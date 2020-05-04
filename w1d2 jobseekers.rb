@@ -85,3 +85,27 @@ end
 
 
 pt1([7,2,1,4,3,9,5,8,6,64])
+
+# Given a sorted array, remove the duplicates in-place such that each element appear only once and return the new length.
+
+# Do not allocate extra space for another array, you must do this by modifying the input array in-place with O(1) extra memory.
+
+# Example
+# Input: [1, 1, 2]
+
+# Your function should return length = 2, with the first two elements of nums being 1 and 2 respectively.
+
+# It doesn't matter what you leave beyond the new length.
+
+
+def newlen(arr)
+  dup_count = 0
+  arr.each_with_index do |num, idx|
+    if num == arr[idx-1]
+      dup_count += 1
+    end
+  end
+  arr.length - dup_count
+end
+
+newlen([1, 1, 2,3,4,4,5,6,7,7,7,7,8,9])
