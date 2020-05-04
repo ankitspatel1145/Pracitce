@@ -52,3 +52,40 @@ def testfun(mat)
 end
 test = [[3,0,8,4],[2,4,5,7],[9,2,6,3],[0,3,1,0]]
 testfun(test)
+
+
+
+
+# A self-dividing number is a number that is divisible by every digit it contains. For example, 128 is a self-dividing number because 128 % 1 == 0, 128 % 2 == 0,and 128 % 8 == 0.
+
+# Also, a self-dividing number is not allowed to contain the digit zero.
+
+# Given a lower and upper number bound, output a list of every possible self dividing number, including the bounds if possible.
+
+# Example
+# Input: left = 1, right = 22
+# Output: [1, 2, 3, 4, 5, 6, 7, 8, 9, 11, 12, 15, 22]
+
+def is_self_div(input)
+  nums = input.to_s.split("")
+  output = true
+  nums.each do |num|
+    return false if num.to_i == 0
+    output = false if input % num.to_i != 0 
+  end
+
+  output
+end
+
+
+def test(left, right)
+  output = []
+  i = left
+  while i <= right 
+    output << i if is_self_div(i)
+    i+= 1
+  end
+  output
+end
+
+test(1,22)
