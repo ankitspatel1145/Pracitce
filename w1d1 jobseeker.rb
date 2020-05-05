@@ -282,3 +282,87 @@ end
 
 
 sort_scores(scores,100)
+
+# (Part 1)
+# Given an integer between 1-3999, xonvert it to a roman numeral.
+
+# (Part 2)
+# Given a roman numeral between 1-3999, convert it to an integer.
+# I = 1
+# V = 5
+# X = 10
+# L = 50 
+# C = 100
+# D = 500
+# M = 1000
+
+
+test = 1423
+def to_rome(test)
+  output = ''
+  
+  m = test / 1000
+  test = test % 1000
+
+  d = test / 500
+  test = test % 500
+
+  c = test / 100
+  test = test % 100
+
+  l = test / 50
+  test = test % 50
+
+  x = test / 10
+  test = test % 10
+
+  v = test / 5
+  test = test % 5
+
+  i = test
+
+  m.times do 
+    output << "M"
+  end
+  
+  d.times do 
+    output << "D"
+  end
+  
+  if c == 4
+    output << "CD"
+  else
+    c.times do 
+      output << "C"
+    end
+  end
+
+  l.times do 
+    output << "L"
+  end
+
+  if x == 4
+    output << "XL"
+  else
+    x.times do 
+      output << "X"
+    end
+  end  
+  v.times do 
+    output << "V"
+  end
+
+  if i == 4
+    output << "IV"
+  else
+    i.times do 
+      output << "I"
+    end
+  end
+
+
+
+  output
+end
+
+to_rome(test)
