@@ -366,3 +366,36 @@ def to_rome(test)
 end
 
 to_rome(test)
+
+# Jewels and Stones
+# You are given two strings, J and S. String J represents the types of stones that are jewels. String S represents all of the stones that you have. Each character in string S is a type of stone you have. You want to know how many of your stones are also jewels.
+
+# Contraints
+
+# The letters in J are guaranteed distinct.
+# All characters in J and S are letters.
+# Letters are case-sensitive, so "a" is considered a different type of stone from "A".
+# Example 1:
+# Input: J = "aA", S = "aAAbbbb"
+# Output: 3
+# Example 2:
+# Input: J = "z", S = "ZZ"
+# Output: 0
+
+
+def jcount(j, s)
+  jewels = {}
+  count = 0
+  j.each_char do |char|
+    jewels[char] = true
+  end
+
+  s.each_char do |char|
+    count += 1 if jewels[char]
+  end
+
+  count
+end
+J = "aA"
+S = "aAAbbbb"
+jcount(J, S)
