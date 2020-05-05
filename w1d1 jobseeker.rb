@@ -251,3 +251,34 @@ end
 
 
 find_dups([7,3,5,0,5,5,2,4,4,0,0,0,0,4,2,5])
+
+# (Question and solution taken from Interview Cake) You've created an extremely popular game. You rank players in the game from highest to lowest score. So far you're using an algorithm that sorts in O(nlogn) time, but players are complaining that their rankings aren't updated fast enough. You need a faster sorting algorithm.
+
+# Write a function that takes:
+
+# an array of unsorted_scores
+# the highest_possible_score in the game
+# and returns a sorted array of scores in less than O(nlogn) time.
+
+
+scores = [43,6,83,6,21,4,78,64,47,22,96,35,97,67,98,78,86]
+
+def sort_scores(arr, max)
+  index = Array.new(max,0)
+
+  arr.each do |score|
+    index[score] += 1
+  end
+
+  output = []
+
+  index.each_with_index do |el, score|
+    el.times do 
+      output << score
+    end
+  end
+  output
+end
+
+
+sort_scores(scores,100)
