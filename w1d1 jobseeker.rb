@@ -233,3 +233,21 @@ end
 test = [1,5,0,6,3,4,78,3,1,4,6,7,5,4,22,45,7,5,3,113,6,3,9]
 
 mergesort(test)
+
+# Write a method that takes an array and returns its duplicate values. Use less than O(n*n) time.
+
+def find_dups(arr)
+  track = []
+  output = {}
+  arr.each do |el|
+    if track[el] == nil
+      track[el] = el
+    else
+      output[el] =1
+    end
+  end
+  output.keys
+end
+
+
+find_dups([7,3,5,0,5,5,2,4,4,0,0,0,0,4,2,5])
